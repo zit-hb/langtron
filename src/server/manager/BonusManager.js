@@ -62,11 +62,11 @@ BonusManager.prototype.popBonus = function ()
         this.popingTimeout = setTimeout(this.popBonus, this.getRandomPopingTime());
 
         if (this.bonuses.count() < this.bonusCap) {
-            var bonusType = this.getRandomBonusType();
+            var BonusType = this.getRandomBonusType();
 
-            if (bonusType) {
+            if (BonusType) {
                 var position = this.getRandomPosition(BaseBonus.prototype.radius, this.bonusPopingMargin),
-                    bonus    = new (bonusType)(position[0], position[1]);
+                    bonus    = new (BonusType)(position[0], position[1]);
                 this.add(bonus);
             }
         }

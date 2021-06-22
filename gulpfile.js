@@ -8,7 +8,6 @@ var fs        = require('fs'),
     rename    = require('gulp-rename'),
     plumber   = require('gulp-plumber'),
     gutil     = require('gulp-util'),
-    minifyCSS = require('gulp-minify-css'),
     htmlmin   = require('gulp-html-minifier'),
     replace   = require('gulp-replace'),
     wrap      = require('gulp-wrap'),
@@ -128,7 +127,6 @@ gulp.task('sass-min', function() {
     return gulp.src(sassDir + 'style.scss')
         .pipe(plumber({ errorHandler: onError }))
         .pipe(sass())
-        .pipe(minifyCSS())
         .pipe(rename('style.css'))
         .pipe(gulp.dest(cssDir));
 });
@@ -138,7 +136,10 @@ gulp.task('copy-stress-test', function() {
         .pipe(gulp.dest(recipes.client.path));
 });
 
-gulp.task('watch', ['dev'], function () {
+gulp.task('default', gulp.series(['jshint', 'server', 'front-expose', 'ga', 'views', 'front-min', 'sass-min']));
+gulp.task('dev', gulp.series(['jshint', 'server', 'front-expose', 'copy-stress-test', 'ga', 'views', 'front-full', 'sass-full']));
+
+gulp.task('watch', gulp.series(['dev'], function () {
     gulp.watch('src/shared/**/*.js', ['jshint', 'server', 'front-full']);
     gulp.watch('src/client/**/*.js', ['jshint', 'front-full']);
     gulp.watch('src/server/**/*.js', ['jshint', 'server']);
@@ -146,7 +147,6 @@ gulp.task('watch', ['dev'], function () {
     gulp.watch('src/client/views/*.html', ['ga']);
     gulp.watch('src/client/stressTest.js', ['copy-stress-test']);
     gulp.watch('src/sass/**/*.scss', ['sass-full']);
-});
+}));
 
-gulp.task('default', ['jshint', 'server', 'front-expose', 'ga', 'views', 'front-min', 'sass-min']);
-gulp.task('dev', ['jshint', 'server', 'front-expose', 'copy-stress-test', 'ga', 'views', 'front-full', 'sass-full']);
+
