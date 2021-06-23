@@ -589,7 +589,7 @@
                 height: $bonus-size;
                 display: inline-block;
                 background: url(../images/bonus.png) no-repeat transparent;
-                background-size: $bonus-size*3 $bonus-size*4;
+                background-size: $bonus-size*3 $bonus-size*5;
                 position: relative;
                 text-align: center;
                 color: #FFF;
@@ -635,6 +635,12 @@
                 }
                 &.bonus-enemy-straight-angle {
                     @include bonus-sprite(2, 3);
+                }
+                &.bonus-self-invincible {
+                    @include bonus-sprite(0, 4);
+                }
+                &.bonus-game-probability {
+                    @include bonus-sprite(1, 4);
                 }
 
                 i {

@@ -26,7 +26,9 @@ function BaseRoomConfig(room)
         BonusEnemyStraightAngle: true,
         BonusGameBorderless: true,
         BonusAllColor: true,
-        BonusGameClear: true
+        BonusGameClear: true,
+        BonusSelfInvincible: true,
+        BonusGameProbability: true
     };
 }
 
