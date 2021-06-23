@@ -44,8 +44,10 @@ BonusGameProbability.prototype.on = function()
 {
     bonusManager = this.target.bonusManager;
     bonusManager.bonusPopingTime = 100;
+    bonusManager.bonusCap = 5;
 
     setTimeout(function() {
         bonusManager.bonusPopingTime = bonusManager.originalBonusPopingTime;
-    }, 2500);
+        bonusManager.bonusCap = 20;
+    }, 5000);
 };
