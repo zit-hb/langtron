@@ -30,6 +30,6 @@ BonusSelfInvincible.prototype.getEffects = function(avatar)
 {
     return [
         ['invincible', true],
-        ['velocity', 0.25 * BaseAvatar.prototype.velocity]
+        ['velocity', -0.25 * BaseAvatar.prototype.velocity]
     ];
 };
