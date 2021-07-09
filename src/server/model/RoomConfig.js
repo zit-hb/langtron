@@ -30,7 +30,8 @@ RoomConfig.prototype.bonusTypes = {
     BonusGameClear: BonusGameClear,
     BonusEnemyStraightAngle: BonusEnemyStraightAngle,
     BonusSelfInvincible: BonusSelfInvincible,
-    BonusGameProbability: BonusGameProbability
+    BonusGameProbability: BonusGameProbability,
+    BonusAllColorBlack: BonusAllColorBlack,
 };
 
 /**

@@ -33,7 +33,8 @@ RoomConfig.prototype.bonusClasses = {
     BonusAllColor:'bonus-all-color',
     BonusGameClear: 'bonus-all-clear',
     BonusSelfInvincible: 'bonus-self-invincible',
-    BonusGameProbability: 'bonus-game-probability'
+    BonusGameProbability: 'bonus-game-probability',
+    BonusAllColorBlack:'bonus-all-color-black',
 };
 
 /**

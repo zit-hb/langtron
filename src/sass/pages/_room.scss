@@ -642,6 +642,9 @@
                 &.bonus-game-probability {
                     @include bonus-sprite(1, 4);
                 }
+                &.bonus-all-color-black {
+                    @include bonus-sprite(2, 4);
+                }
 
                 i {
                     width: 16px;

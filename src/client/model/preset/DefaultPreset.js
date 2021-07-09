@@ -35,5 +35,6 @@ DefaultPreset.prototype.bonuses = [
     'BonusGameBorderless',
     'BonusAllColor',
     'BonusGameClear',
-    'BonusGameProbability'
+    'BonusGameProbability',
+    'BonusAllColorBlack',
 ];

@@ -44,7 +44,8 @@ BonusManager.prototype.spritePosition = [
     'BonusGameClear',
     'BonusEnemyStraightAngle',
     'BonusSelfInvincible',
-    'BonusGameProbability'
+    'BonusGameProbability',
+    'BonusAllColorBlack',
 ];
 
 /**

@@ -28,7 +28,8 @@ function BaseRoomConfig(room)
         BonusAllColor: true,
         BonusGameClear: true,
         BonusSelfInvincible: true,
-        BonusGameProbability: true
+        BonusGameProbability: true,
+        BonusAllColorBlack: true,
     };
 }
 
