@@ -2,7 +2,7 @@
 
 __Clone the repository__
 
-    git clone https://github.com/Elao/curvytron.git
+    git clone https://github.com/zit-hb/langtron.git
     cd curvytron
 
 __Build the game__
