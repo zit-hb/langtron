@@ -1,8 +1,3 @@
-## Prerequisite
-
-Curvytron runs on [node.js >= v0.10](https://nodejs.org/).
-You need to install node on the machine that will run the Curvytron server.
-
 ## Installation
 
 __Clone the repository__
@@ -10,18 +5,13 @@ __Clone the repository__
     git clone https://github.com/Elao/curvytron.git
     cd curvytron
 
-__Install dependencies__
-
-    npm install
-    bower install
-
 __Build the game__
 
-    gulp
+    docker build -t tron .
 
 ## Launch server
 
-    node bin/curvytron.js
+    docker run --rm --name tron -p 8080:8080 tron
 
 ## Play
 
