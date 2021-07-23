@@ -1,18 +1,11 @@
-Curvytron
+Langtron
 =========
 
-A web multiplayer Tron game like with curves
+A web multiplayer Tron game like with curves, forked from [Curvytron](https://github.com/Curvytron/curvytron).
 
 ## Installation
 
-* [Get your local Curvytron server in 1 minute!](doc/installation.md)
-
----
-
-## Wanna help?
-
-* [See how you can make the game better](doc/contribution.md)
-* [Setup you development environment](doc/dev.md)
+* [Get your local Langtron server in 1 minute!](doc/installation.md)
 
 ---
 
