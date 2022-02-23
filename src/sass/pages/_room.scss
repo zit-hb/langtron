@@ -589,7 +589,7 @@
                 height: $bonus-size;
                 display: inline-block;
                 background: url(../images/bonus.png) no-repeat transparent;
-                background-size: $bonus-size*3 $bonus-size*5;
+                background-size: $bonus-size*3 $bonus-size*6;
                 position: relative;
                 text-align: center;
                 color: #FFF;
@@ -644,6 +644,9 @@
                 }
                 &.bonus-all-color-black {
                     @include bonus-sprite(2, 4);
+                }
+                &.bonus-all-dashed {
+                    @include bonus-sprite(0, 5);
                 }
 
                 i {

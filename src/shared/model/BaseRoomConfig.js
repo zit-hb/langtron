@@ -30,6 +30,7 @@ function BaseRoomConfig(room)
         BonusSelfInvincible: true,
         BonusGameProbability: true,
         BonusAllColorBlack: true,
+        BonusAllDashed: true,
     };
 }
 

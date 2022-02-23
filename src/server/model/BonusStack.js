@@ -60,6 +60,9 @@ BonusStack.prototype.apply = function(property, value)
         case 'color':
             this.target.setColor(value);
             break;
+        case 'dashed':
+            this.target.printManager.holeDistance = value;
+            break;
         default:
             BaseBonusStack.prototype.apply.call(this, property, value);
             break;
@@ -82,6 +85,8 @@ BonusStack.prototype.getDefaultProperty = function(property)
             return 0;
         case 'color':
             return this.target.player.color;
+        case 'dashed':
+            return 5;
         default:
             return Avatar.prototype[property];
     }

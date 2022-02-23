@@ -32,6 +32,7 @@ RoomConfig.prototype.bonusTypes = {
     BonusSelfInvincible: BonusSelfInvincible,
     BonusGameProbability: BonusGameProbability,
     BonusAllColorBlack: BonusAllColorBlack,
+    BonusAllDashed: BonusAllDashed,
 };
 
 /**
