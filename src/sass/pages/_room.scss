@@ -648,6 +648,9 @@
                 &.bonus-all-dashed {
                     @include bonus-sprite(0, 5);
                 }
+                &.bonus-self-explode {
+                    @include bonus-sprite(1, 5);
+                }
 
                 i {
                     width: 16px;
