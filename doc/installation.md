@@ -3,7 +3,7 @@
 __Clone the repository__
 
     git clone https://github.com/zit-hb/langtron.git
-    cd curvytron
+    cd langtron
 
 __Build the game__
 
