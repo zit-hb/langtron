@@ -198,7 +198,7 @@ BaseAvatar.prototype.updatePosition = function(step)
  */
 BaseAvatar.prototype.setVelocity = function(velocity)
 {
-    velocity = Math.max(velocity, BaseAvatar.prototype.velocity/2);
+    velocity = Math.max(velocity, BaseAvatar.prototype.velocity/10);
 
     if (this.velocity !== velocity) {
         this.velocity = velocity;

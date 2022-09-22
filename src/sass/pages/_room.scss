@@ -651,6 +651,9 @@
                 &.bonus-self-explode {
                     @include bonus-sprite(1, 5);
                 }
+                &.bonus-self-yscaler {
+                    @include bonus-sprite(2, 5);
+                }
 
                 i {
                     width: 16px;

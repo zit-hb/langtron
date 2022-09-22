@@ -33,7 +33,8 @@ RoomConfig.prototype.bonusTypes = {
     BonusGameProbability: BonusGameProbability,
     BonusAllColorBlack: BonusAllColorBlack,
     BonusAllDashed: BonusAllDashed,
-    BonusSelfExplode: BonusSelfExplode
+    BonusSelfExplode: BonusSelfExplode,
+    BonusSelfYscaler: BonusSelfYscaler
 };
 
 /**

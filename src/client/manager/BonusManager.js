@@ -47,7 +47,8 @@ BonusManager.prototype.spritePosition = [
     'BonusGameProbability',
     'BonusAllColorBlack',
     'BonusAllDashed',
-    'BonusSelfExplode'
+    'BonusSelfExplode',
+    'BonusSelfYscaler'
 ];
 
 /**

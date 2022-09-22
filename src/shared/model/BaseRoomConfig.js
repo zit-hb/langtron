@@ -31,7 +31,8 @@ function BaseRoomConfig(room)
         BonusGameProbability: true,
         BonusAllColorBlack: true,
         BonusAllDashed: true,
-        BonusSelfExplode: true
+        BonusSelfExplode: true,
+        BonusSelfYscaler: true
     };
 }
 

@@ -38,5 +38,6 @@ DefaultPreset.prototype.bonuses = [
     'BonusGameProbability',
     'BonusAllColorBlack',
     'BonusAllDashed',
-    'BonusSelfExplode'
+    'BonusSelfExplode',
+    'BonusSelfYscaler'
 ];
