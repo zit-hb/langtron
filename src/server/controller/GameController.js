@@ -11,25 +11,26 @@ function GameController(game)
     this.compressor  = new Compressor();
     this.waiting     = null;
 
-    this.onGameStart   = this.onGameStart.bind(this);
-    this.onGameStop    = this.onGameStop.bind(this);
-    this.onDie         = this.onDie.bind(this);
-    this.onPosition    = this.onPosition.bind(this);
-    this.onAngle       = this.onAngle.bind(this);
-    this.onPoint       = this.onPoint.bind(this);
-    this.onScore       = this.onScore.bind(this);
-    this.onRoundScore  = this.onRoundScore.bind(this);
-    this.onProperty    = this.onProperty.bind(this);
-    this.onBonusStack  = this.onBonusStack.bind(this);
-    this.onBonusPop    = this.onBonusPop.bind(this);
-    this.onBonusClear  = this.onBonusClear.bind(this);
-    this.onRoundNew    = this.onRoundNew.bind(this);
-    this.onRoundEnd    = this.onRoundEnd.bind(this);
-    this.onPlayerLeave = this.onPlayerLeave.bind(this);
-    this.onClear       = this.onClear.bind(this);
-    this.onBorderless  = this.onBorderless.bind(this);
-    this.onEnd         = this.onEnd.bind(this);
-    this.stopWaiting   = this.stopWaiting.bind(this);
+    this.onGameStart    = this.onGameStart.bind(this);
+    this.onGameStop     = this.onGameStop.bind(this);
+    this.onDie          = this.onDie.bind(this);
+    this.onPosition     = this.onPosition.bind(this);
+    this.onAngle        = this.onAngle.bind(this);
+    this.onPoint        = this.onPoint.bind(this);
+    this.onScore        = this.onScore.bind(this);
+    this.onRoundScore   = this.onRoundScore.bind(this);
+    this.onProperty     = this.onProperty.bind(this);
+    this.onBonusStack   = this.onBonusStack.bind(this);
+    this.onBonusPop     = this.onBonusPop.bind(this);
+    this.onBonusClear   = this.onBonusClear.bind(this);
+    this.onRoundNew     = this.onRoundNew.bind(this);
+    this.onRoundEnd     = this.onRoundEnd.bind(this);
+    this.onPlayerLeave  = this.onPlayerLeave.bind(this);
+    this.onCleanageddon = this.onCleanageddon.bind(this);
+    this.onClear        = this.onClear.bind(this);
+    this.onBorderless   = this.onBorderless.bind(this);
+    this.onEnd          = this.onEnd.bind(this);
+    this.stopWaiting    = this.stopWaiting.bind(this);
 
     this.callbacks = {
         onReady: function () { controller.onReady(this); },
@@ -55,6 +56,7 @@ GameController.prototype.loadGame = function()
     this.game.on('game:stop', this.onGameStop);
     this.game.on('end', this.onEnd);
     this.game.on('clear', this.onClear);
+    this.game.on('cleanageddon', this.onCleanageddon);
     this.game.on('player:leave', this.onPlayerLeave);
     this.game.on('round:new', this.onRoundNew);
     this.game.on('round:end', this.onRoundEnd);
@@ -80,6 +82,7 @@ GameController.prototype.unloadGame = function()
     this.game.removeListener('game:stop', this.onGameStop);
     this.game.removeListener('end', this.onEnd);
     this.game.removeListener('clear', this.onClear);
+    this.game.removeListener('cleanageddon', this.onCleanageddon);
     this.game.removeListener('player:leave', this.onPlayerLeave);
     this.game.removeListener('round:new', this.onRoundNew);
     this.game.removeListener('round:end', this.onRoundEnd);
@@ -488,6 +491,16 @@ GameController.prototype.onRoundNew = function(data)
 GameController.prototype.onRoundEnd = function(data)
 {
     this.socketGroup.addEvent('round:end', data.winner ? data.winner.id : null);
+};
+
+/**
+ * On cleanageddon
+ *
+ * @param {Object} data
+ */
+GameController.prototype.onCleanageddon = function(data)
+{
+    this.socketGroup.addEvent('cleanageddon');
 };
 
 /**

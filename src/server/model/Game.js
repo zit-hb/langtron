@@ -146,6 +146,30 @@ Game.prototype.isWon = function()
 };
 
 /**
+ * Is boring
+ *
+ * @return {Boolean}
+ */
+Game.prototype.isCleanageddon = function()
+{
+    if (this.avatars.count() < 7) {
+        return false;
+    }
+
+    var present = this.getPresentAvatars().count();
+    return (present < 4);
+};
+
+
+/**
+ * Play cleanageddon sound
+ */
+Game.prototype.soundCleanageddon = function()
+{
+    this.emit('cleanageddon', {game: this});
+};
+
+/**
  * Check if the round should end
  */
 Game.prototype.checkRoundEnd = function()
