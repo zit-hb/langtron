@@ -16,26 +16,27 @@ function GameRepository(client, parent, sound, notifier)
     this.compressor = new Compressor();
     this.game       = null;
 
-    this.start        = this.start.bind(this);
-    this.stop         = this.stop.bind(this);
-    this.draw         = this.draw.bind(this);
-    this.onGameStart  = this.onGameStart.bind(this);
-    this.onGameStop   = this.onGameStop.bind(this);
-    this.onBonusPop   = this.onBonusPop.bind(this);
-    this.onBonusClear = this.onBonusClear.bind(this);
-    this.onBonusStack = this.onBonusStack.bind(this);
-    this.onPosition   = this.onPosition.bind(this);
-    this.onAngle      = this.onAngle.bind(this);
-    this.onPoint      = this.onPoint.bind(this);
-    this.onDie        = this.onDie.bind(this);
-    this.onProperty   = this.onProperty.bind(this);
-    this.onRoundNew   = this.onRoundNew.bind(this);
-    this.onRoundEnd   = this.onRoundEnd.bind(this);
-    this.onClear      = this.onClear.bind(this);
-    this.onBorderless = this.onBorderless.bind(this);
-    this.onEnd        = this.onEnd.bind(this);
-    this.onLeave      = this.onLeave.bind(this);
-    this.onSpectate   = this.onSpectate.bind(this);
+    this.start          = this.start.bind(this);
+    this.stop           = this.stop.bind(this);
+    this.draw           = this.draw.bind(this);
+    this.onGameStart    = this.onGameStart.bind(this);
+    this.onGameStop     = this.onGameStop.bind(this);
+    this.onBonusPop     = this.onBonusPop.bind(this);
+    this.onBonusClear   = this.onBonusClear.bind(this);
+    this.onBonusStack   = this.onBonusStack.bind(this);
+    this.onPosition     = this.onPosition.bind(this);
+    this.onAngle        = this.onAngle.bind(this);
+    this.onPoint        = this.onPoint.bind(this);
+    this.onDie          = this.onDie.bind(this);
+    this.onProperty     = this.onProperty.bind(this);
+    this.onRoundNew     = this.onRoundNew.bind(this);
+    this.onRoundEnd     = this.onRoundEnd.bind(this);
+    this.onClear        = this.onClear.bind(this);
+    this.onCleanageddon = this.onCleanageddon.bind(this);
+    this.onBorderless   = this.onBorderless.bind(this);
+    this.onEnd          = this.onEnd.bind(this);
+    this.onLeave        = this.onLeave.bind(this);
+    this.onSpectate     = this.onSpectate.bind(this);
 }
 
 GameRepository.prototype = Object.create(EventEmitter.prototype);
@@ -81,6 +82,7 @@ GameRepository.prototype.attachEvents = function()
     this.client.on('round:new', this.onRoundNew);
     this.client.on('round:end', this.onRoundEnd);
     this.client.on('clear', this.onClear);
+    this.client.on('cleanageddon', this.onCleanageddon);
     this.client.on('borderless', this.onBorderless);
     this.client.on('end', this.onEnd);
     this.client.on('game:leave', this.onLeave);
@@ -105,6 +107,7 @@ GameRepository.prototype.detachEvents = function()
     this.client.off('round:new', this.onRoundNew);
     this.client.off('round:end', this.onRoundEnd);
     this.client.off('clear', this.onClear);
+    this.client.off('cleanageddon', this.onCleanageddon);
     this.client.off('borderless', this.onBorderless);
     this.client.off('end', this.onEnd);
     this.client.off('game:leave', this.onLeave);
@@ -272,6 +275,16 @@ GameRepository.prototype.onBonusClear = function(e)
         this.game.bonusManager.remove(bonus);
         this.sound.play('bonus-clear');
     }
+};
+
+/**
+ * On cleanageddon
+ *
+ * @param {Event} e
+ */
+GameRepository.prototype.onCleanageddon = function(e)
+{
+    this.sound.play('cleanageddon');
 };
 
 /**

@@ -43,4 +43,17 @@ BonusGameClear.prototype.getProbability = function (game)
 BonusGameClear.prototype.on = function()
 {
     this.target.clearTrails();
+
+    if (this.target.isCleanageddon()) {
+        this.target.soundCleanageddon();
+
+        bonusManager = this.target.bonusManager;
+        bonusManager.bonusPopingTime = 100;
+        bonusManager.bonusCap = 25;
+
+        setTimeout(function () {
+            bonusManager.bonusPopingTime = bonusManager.originalBonusPopingTime;
+            bonusManager.bonusCap = 20;
+        }, 5000);
+    }
 };

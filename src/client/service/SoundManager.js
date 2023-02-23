@@ -32,7 +32,8 @@ SoundManager.prototype.sounds = [
     {id:'win', src:'win.ogg'},
     {id:'notice', src:'notice.ogg'},
     {id:'bonus-clear', src:'bonus-clear.ogg'},
-    {id:'bonus-pop', src:'bonus-pop.ogg'}
+    {id:'bonus-pop', src:'bonus-pop.ogg'},
+    {id:'cleanageddon', src:'cleanageddon.ogg'}
 ];
 
 /**
