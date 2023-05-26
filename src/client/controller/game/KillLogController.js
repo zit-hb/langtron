@@ -1,4 +1,34 @@
 /**
+ * Escapes the special HTML characters `&`, `<`, `>`, `"`, and `'`.
+ * 
+ * @param {string} s
+ * @returns {string}
+ */
+function htmlEscape(s) {
+    return s.replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&apos;');
+}
+
+/**
+ * An interpolation function that can be used as a tagged template.
+ * Properly HTML-escapes all values while keeping the literals as-is.
+ * 
+ * @param {string[]} literals
+ * @param  {...any} values 
+ * @returns {string}
+ */
+function interpolate(literals, ...values) {
+    let interpolated = literals[0];
+    for (let i = 1; i < literals.length; i++) {
+        interpolated += htmlEscape(String(values[i - 1])) + literals[i];
+    }
+    return interpolated;
+}
+
+/**
  * Kill Log Controller
  *
  * @param {Object} $scope
@@ -15,10 +45,10 @@ function KillLogController($scope, $interpolate, client)
     this.game      = $scope.game;
     this.element   = document.getElementById('kill-log-feed');
     this.templates = {
-        suicide: $interpolate('<span style="color: {{ ::deadPlayer.color }}">{{ ::deadPlayer.name }}</span> committed suicide'),
-        kill: $interpolate('<span style="color: {{ ::deadPlayer.color }}">{{ ::deadPlayer.name }}</span> was killed by <span style="color: {{ ::killerPlayer.color }}">{{ ::killerPlayer.name }}</span>'),
-        crash: $interpolate('<span style="color: {{ ::deadPlayer.color }}">{{ ::deadPlayer.name }}</span> crashed on <span style="color: {{ ::killerPlayer.color }}">{{ ::killerPlayer.name }}</span>'),
-        wall: $interpolate('<span style="color: {{ ::deadPlayer.color }}">{{ ::deadPlayer.name }}</span> crashed on the wall')
+        suicide: ({ deadPlayer }) => interpolate`<span style="color: ${deadPlayer.color}">${deadPlayer.name}</span> committed suicide`,
+        kill: ({ deadPlayer, killerPlayer }) => interpolate`<span style="color: ${deadPlayer.color}">${deadPlayer.name}</span> was killed by <span style="color: ${killerPlayer.color}">${killerPlayer.name}</span>`,
+        crash: ({ deadPlayer, killerPlayer }) => interpolate`<span style="color: ${deadPlayer.color}">${deadPlayer.name}</span> crashed on <span style="color: ${killerPlayer.color}">${killerPlayer.name}</span>`,
+        wall: ({ deadPlayer }) => interpolate`<span style="color: ${deadPlayer.color}">${deadPlayer.name}</span> crashed on the wall`,
     };
 
     this.clear = this.clear.bind(this);
