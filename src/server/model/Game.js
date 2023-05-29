@@ -153,7 +153,7 @@ Game.prototype.isWon = function()
 Game.prototype.isCleanageddon = function()
 {
     var present = this.getPresentAvatars().count();
-    return (present < 4);
+    return (present < 6);
 };
 
 
