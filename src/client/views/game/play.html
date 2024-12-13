@@ -80,6 +80,9 @@
                             </span>
                             won the {{ game.started ? 'round' : 'game' }} !
                         </p>
+                        <p class="rip-at" ng-if="!game.started">
+                            Languages + Analysis Team 4 Ever
+                        </p>
                         <p class="victory" ng-if="!winner">
                             <i class="icon-dead"></i>
                             Oops, everybody died...
