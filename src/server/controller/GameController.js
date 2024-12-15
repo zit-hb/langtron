@@ -474,6 +474,17 @@ GameController.prototype.onGameStop = function(data)
 };
 
 /**
+ * Resets cleanageddon at the start of a new round.
+ */
+GameController.prototype.resetCleanageddon = function()
+{
+    let bonusManager = this.game.bonusManager;
+    bonusManager.isCleanageddon = false;
+    bonusManager.bonusPopingTime = bonusManager.originalBonusPopingTime;
+    bonusManager.bonusCap = 20;
+};
+
+/**
  * On round new
  *
  * @param {Object} data
@@ -481,6 +492,7 @@ GameController.prototype.onGameStop = function(data)
 GameController.prototype.onRoundNew = function(data)
 {
     this.socketGroup.addEvent('round:new');
+    this.resetCleanageddon();
 };
 
 /**

@@ -12,6 +12,7 @@ function BonusManager(game, bonuses, rate)
     this.bonusTypes      = bonuses;
     this.bonusPopingTime = this.bonusPopingTime - ((this.bonusPopingTime/2) * rate);
     this.originalBonusPopingTime = this.bonusPopingTime;
+    this.isCleanageddon  = false;
 
     this.popBonus = this.popBonus.bind(this);
 }

@@ -47,13 +47,9 @@ BonusGameClear.prototype.on = function()
     if (this.target.isCleanageddon()) {
         this.target.soundCleanageddon();
 
-        bonusManager = this.target.bonusManager;
+        let bonusManager = this.target.bonusManager;
+        bonusManager.isCleanageddon = true;
         bonusManager.bonusPopingTime = 100;
-        bonusManager.bonusCap = 25;
-
-        setTimeout(function () {
-            bonusManager.bonusPopingTime = bonusManager.originalBonusPopingTime;
-            bonusManager.bonusCap = 20;
-        }, 5000);
+        bonusManager.bonusCap = 50;
     }
 };

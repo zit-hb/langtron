@@ -42,11 +42,20 @@ BonusGameProbability.prototype.getProbability = function (game)
  */
 BonusGameProbability.prototype.on = function()
 {
-    bonusManager = this.target.bonusManager;
+    let bonusManager = this.target.bonusManager;
+
+    if (bonusManager.isCleanageddon) {
+        return;
+    }
+
     bonusManager.bonusPopingTime = 100;
-    bonusManager.bonusCap = 5;
+    bonusManager.bonusCap = 10;
 
     setTimeout(function() {
+        if (bonusManager.isCleanageddon) {
+            return;
+        }
+
         bonusManager.bonusPopingTime = bonusManager.originalBonusPopingTime;
         bonusManager.bonusCap = 20;
     }, 5000);
